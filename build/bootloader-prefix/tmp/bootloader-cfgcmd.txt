@@ -1,0 +1,1 @@
+cmd='C:/.espressif/tools/cmake/3.13.4/bin/cmake.exe;-DSDKCONFIG=C:/esp32_dev/qspi-to-fpga/sdkconfig;-DIDF_PATH=C:/esp-idf;-DIDF_TARGET=esp32;-DPYTHON_DEPS_CHECKED=1;-DPYTHON=python;-DEXTRA_COMPONENT_DIRS=C:/esp-idf/components/bootloader;-DLEGACY_INCLUDE_COMMON_HEADERS=;-GNinja;<SOURCE_DIR><SOURCE_SUBDIR>'

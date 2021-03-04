@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+C:/esp32_dev/qspi-to-fpga/build/CMakeFiles/bootloader
+C:/esp32_dev/qspi-to-fpga/build/CMakeFiles/bootloader.rule
+C:/esp32_dev/qspi-to-fpga/build/CMakeFiles/bootloader-complete.rule
+C:/esp32_dev/qspi-to-fpga/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+C:/esp32_dev/qspi-to-fpga/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+C:/esp32_dev/qspi-to-fpga/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+C:/esp32_dev/qspi-to-fpga/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+C:/esp32_dev/qspi-to-fpga/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+C:/esp32_dev/qspi-to-fpga/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+C:/esp32_dev/qspi-to-fpga/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
