@@ -1,11 +1,10 @@
-ESP-IDF template app
+ESP-IDF app for Spartan Edge Accelerator
 ====================
 
-This is a template application to be used with [Espressif IoT Development Framework](https://github.com/espressif/esp-idf).
+A messy app based on the ESP-IDF app template. This is meant to be run on ESP32 that is part of the Spartan Edge Accelerator board.
 
-Please check [ESP-IDF docs](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html) for getting started instructions.
+The application repeatedly sends data using the ESP32's SPI peripheral configured for QSPI and sending using DMA to minimize CPU usage.
 
-*Code in this repository is in the Public Domain (or CC0 licensed, at your option.)
-Unless required by applicable law or agreed to in writing, this
-software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-CONDITIONS OF ANY KIND, either express or implied.*
+The application waits for a GPIO interrupt which is meant to signal the beginning of the VBLANK period on a hardware design specified in [this](https://github.com/smartperson/spartan-edge-accelerator-graphical-system) repository.
+
+The goal is to ultimately allow for the creation of rich, graphically complex applications on the ESP32, with the FPGA handling the graphics processing. The sibling repository has more information, and will be used to track most of the active development on this project.
