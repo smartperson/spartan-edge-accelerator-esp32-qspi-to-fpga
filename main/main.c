@@ -12,6 +12,8 @@ CONDITIONS OF ANY KIND, either express or implied.
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 
+#include "rom/ets_sys.h"
+
 #include "esp_system.h"
 #include <sys/time.h>
 
@@ -137,14 +139,16 @@ void app_main(void)
   // gpio_set_level(GPIO_NUM_5, 1);
 
   /* Transaction to read a register */
-  uint16_t addr = 0x21C0;
+  uint16_t addr = 0x21C0;//0x21C0;
   uint8_t data[255] = {addr >> 8, addr & 0xFF};
-  data[2] = 0x10;
-  data[3] = 0x10;
-  data[4] = 0x10;
-  data[5] = 0x04;
-  data[6] = 0x10;
-  data[7] = 0x0A;
+  data[2] = 0x01;
+  data[3] = 0x03;
+  data[4] = 0x01;
+  data[5] = 0x02;
+  data[6] = 0x01;
+  data[7] = 0x04;
+  data[8] = 0x01;
+  data[9] = 0x05;
   // for (int i = 0; i < 12; i++)
     // data[i+2] = STR_TEST[i];
   // while(1) {
@@ -181,17 +185,18 @@ void app_main(void)
     //close the transaction
     // gpio_set_level(GPIO_NUM_5, 1); //inactive CS
     time_t nowtime = {1608495248, 0};
-    settimeofday(&nowtime, 0);
+    //settimeofday(&nowtime, 0);
 while(1) {
     //for (int i = 1; i >= 0; i--) {
     vTaskDelay(1000 / portTICK_PERIOD_MS);
     //}
-    time (&rawtime);
-    timeinfo = localtime(&rawtime);
-    //int str_length = strftime(time_string, sizeof(data)-2, "%x %X %a", &timeinfo);
-    char* asc_time = asctime(timeinfo);
-    int str_length = 24;
-    printf("%s\n", asc_time);
+    //time (&rawtime);
+    //timeinfo = localtime(&rawtime);
+    int str_length = 0; //strftime(time_string, sizeof(data)-2, "%x %X %a", &timeinfo);
+    char* asc_time = "";
+//    char* asc_time = asctime(timeinfo);
+    //int str_length = 24;
+//    printf("%s\n", asc_time);
     for (int i = 0; i < str_length; i++) {
       char translated;
       if (asc_time[i] >= 'a' && asc_time[i] <= 'z') {
@@ -215,8 +220,10 @@ while(1) {
 		data[2+i*2+1] = 0x27;
       }
     }
-    trans.length = (2+str_length*2)*8;
+    // trans.length = (2+str_length*2)*8;
+    trans.length = 10*8;
     sendQSPI = 1;
+    printf("interrupt_count %d\n", interrupt_count);
     //tick_count = (tick_count+1)%10;
     //data[3] = 26+tick_count;
     interrupt_count = 0;
